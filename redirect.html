@@ -5,7 +5,7 @@
 	
 	<script>	
 	function getFmpUrl() {
-			const fmServer = "mac.nesredna.com"   // if FMP and the web server are on different machines, this should point to fmServer
+			const fmServer = "fms.example.com"   // if FMP and the web server are on different machines, this should point to fmServer
 			let newPath = location.search.slice(1);
 			return "fmp://" + fmServer + "/" + newPath;
 	}
