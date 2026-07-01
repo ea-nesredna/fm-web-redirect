@@ -1,4 +1,4 @@
-# A Redirect script for FileMaker Pro
+# A Redirect script for FileMaker Pro and FileMaker Server
 
 Copyright 2026, Eric Andersen eric@nesredna.com
 
