@@ -4,25 +4,27 @@
 	<meta charset="utf-8" />
 	
 	<script>	
-		// Check if the current URL starts with https://
-		if (window.location.protocol === 'https:') {
-			// Replace 'https://' with 'fmp://' and redirect
-			const currentUrl = window.location.href;
-			const fmpUrl = currentUrl.replace(/^https:\/\//i, 'fmp://');
-			
-			window.location.href = fmpUrl;
-		}
+	function getFmpUrl() {
+			const fmServer = "mac.nesredna.com"   // if FMP and the web server are on different machines, this should point to fmServer
+			let newPath = location.search.slice(1);
+			return "fmp://" + fmServer + "/" + newPath;
+	}
 	</script>
 	<title>FMP Redirect</title>
 </head>
-<body>
-<h1>Redirecting…</h1>
-<p>If you are not automatically redirected, <a id="manual-link" href="#">click here to open in FileMaker</a>.</p>
-   
-    <script>
-        // Fallback: update a manual link just in case automatic redirect fails
-        document.getElementById('manual-link').href = window.location.href.replace(/^https:\/\//i, 'fmp://');
-    </script>
 
+<body>
+
+	<h1>Redirecting…</h1>
+
+	<p>If you are not automatically redirected, <a id="manual-link" href="#">click here to open in FileMaker</a>.</p>
+
+    <script>
+		const targetUrl = getFmpUrl();
+		document.getElementsById('manual-link').href = targetUrl;
+		window.location.href = targetUrl;
+    </script>
+    
 </body>
+
 </html>
